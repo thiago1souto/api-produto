@@ -2,9 +2,11 @@ pipeline {
     agent any 
     
     stages {
-        stage ('Inicial') { 
+        stage ('Build Image') { 
             steps { 
-                echo 'Iniciando a pipeline'
+                cript {
+                    dockerapp = docker.build("thiago1souto/api-produto:${env.BUILD_ID}", '-f ./src/Dockerfile ./src') 
+                }       
             }
         }
 
