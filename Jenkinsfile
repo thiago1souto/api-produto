@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('Build Image') { 
             steps { 
-                cript {
+                script {
                     dockerapp = docker.build("thiago1souto/api-produto:${env.BUILD_ID}", '-f ./src/Dockerfile ./src') 
                 }       
             }
