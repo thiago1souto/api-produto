@@ -5,7 +5,7 @@ pipeline {
         stage ('Build Image') {
             steps {
                 script {
-                    dockerImage = docker.build("thiago1souto/api-produto:${env.BUILD_ID}", '-f ./src/Dockerfile ./src') 
+                    docker.build("thiago1souto/api-produto:${env.BUILD_ID}", '-f ./src/Dockerfile ./src') 
                 }                
             }
         }
